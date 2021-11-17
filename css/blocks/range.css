@@ -1,0 +1,46 @@
+.rs-container .rs-selected {
+    color: var(--white);
+    background-color: var(--main-blue);
+    border-color: var(--main-blue);
+}
+
+.rs-container .rs-scale {
+    display: none;
+}
+
+.rs-container {
+    height: 75px;
+}
+
+.rs-container .rs-pointer {
+    top: 30px;
+}
+
+.rs-container .rs-scale {
+    top: 35px;
+}
+
+.rs-container .rs-bg {
+    left: -16px;
+    width: 110%;
+}
+
+.rs-container .rs-bg,
+.rs-container .rs-selected {
+    top: 35px;
+}
+
+.rs-tooltip-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -26px;
+}
+
+.rs-tooltip {
+    position: static;
+    color: var(--disabled-blue);
+    background-color: transparent;
+    border: none;
+    font-family: var(--main-font);
+    transform: translate(0);
+}

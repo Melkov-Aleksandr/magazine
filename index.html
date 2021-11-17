@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+  <html lang="ru">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="./css/rSlider.min.css"/>
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="preload" href="fonts/Montserrat-Medium.woff2" as="font">
+      <link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font">
+      <link rel="preload" href="fonts/Montserrat-Regular.woff2" as="font">
+      <title>Главная</title>
+    </head>
+
+    <body>
+      <main>
+        <section class="onlineshop-app">
+          <h1 class="visually-hidden">Главная</h1>
+          <div class="onlineshop-app__blueline"></div>
+          <div class="onlineshop-app__wrapper">
+            <section class="onlineshop-app__filter filter">
+              <h2 class="title filter__title">Фильтр</h2>
+              <form class="filter__form" action="#" method="post">
+                <div class="filter__select-wrapper">
+                  <label for="categories">Категория товаров</label>
+                  <select id="categories" name="categories">
+                    <option value="all" selected>Все</option>
+                    <option value="estate">Недвижимость</option>
+                    <option value="laptops">Ноутбуки</option>
+                    <option value="camera">Фотоаппараты</option>
+                    <option value="cars">Автомобили</option>
+                  </select>
+                  <svg width="14" height="8" viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L7 5.58579L12.2929 0.292893C12.6834 -0.0976311 13.3166 -0.0976311 13.7071 0.292893C14.0976 0.683417 14.0976 1.31658 13.7071 1.70711L7.70711 7.70711C7.31658 8.09763 6.68342 8.09763 6.29289 7.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z" />
+                  </svg>
+                </div>
+                <div class="filter__range">
+                  <label for="range">Цена, ₽</label>
+                  <input type="text" id="sampleSlider" />
+                </div>
+                <div class="filter__estate">
+                  <fieldset class="filter__type filter__type--estate">
+                    <legend>Тип недвижимости</legend>
+                    <ul class="filter__checkboxes-list filter__checkboxes-list--estate">
+                      <li class="filter__checkboxes-item">
+                        <input class="visually-hidden" type="checkbox" name="estate-type" value="house" id="house">
+                        <label for="house">Дом</label>
+                      </li>
+                      <li class="filter__checkboxes-item">
+                        <input class="visually-hidden" type="checkbox" name="estate-type" value="flat" id="flat">
+                        <label for="flat">Квартира</label>
+                      </li>
+                      <li class="filter__checkboxes-item">
+                        <input class="visually-hidden" type="checkbox" name="estate-type" value="apartments" id="apartments">
+                        <label for="apartments">Апартаменты</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                  <div class="filter__min-square">
+                    <label for="square">Минимальная площать, м<sup>2</sup></label>
+                    <input type="number" id="square" name="min-square" min="1" value="" placeholder="0">
+                  </div>
+                  <fieldset class="filter__radiobuttons filter__radiobuttons--ram">
+                    <legend>Количество комнат</legend>
+                    <ul class="filter__ram-list">
+                      <li class="filter__radiobuttons-item">
+                        <input class="visually-hidden" type="radio" name="rooms" value="any" id="any_room">
+                        <label for="any_room">Любое</label>
+                      </li>
+                      <li class="filter__radiobuttons-item">
+                        <input class="visually-hidden" type="radio" name="rooms" value="one" id="one">
+                        <label for="one">1</label>
+                      </li>
+                      <li class="filter__radiobuttons-item">
+                        <input class="visually-hidden" type="radio" name="rooms" value="two" id="two">
+                        <label for="two">2</label>
+                      </li>
+                      <li class="filter__radiobuttons-item">
+                        <input class="visually-hidden" type="radio" name="rooms" value="three" id="three">
+                        <label for="three">3</label>
+                      </li>
+                      <li class="filter__radiobuttons-item">
+                        <input class="visually-hidden" type="radio" name="rooms" value="four" id="four">
+                        <label for="four">4</label>
+                      </li>
+                      <li class="filter__radiobuttons-item">
+                        <input class="visually-hidden" type="radio" name="rooms" value="fivemore" id="fivemore">
+                        <label for="fivemore">5+</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                </div>
+                <div class="filter__camera">
+                  <fieldset class="filter__type filter__type--camera">
+                    <legend>Тип фотоаппарата</legend>
+                    <ul class="filter__checkboxes-list filter__checkboxes-list--camera">
+                      <li class="filter__checkboxes-item">
+                        <input class="visually-hidden" type="checkbox" name="camera-type" value="mirror" id="mirror">
+                        <label for="mirror">Зеркальный</label>
+                      </li>
+                      <li class="filter__checkboxes-item">
+                        <input class="visually-hidden" type="checkbox" name="camera-type" value="digital" id="digital">
+                        <label for="digital">Цифровой</label>
+                      </li>
+                      <li class="filter__checkboxes-item">
+                        <input class="visually-hidden" type="checkbox" name="camera-type" value="mirrorless" id="mirrorless">
+                        <label for="mirrorless">Беззеркальный</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                  <div class="filter__select-wrapper filter__select-wrapper--min-resolution">
+                    <label for="resolution-matrix">Минимальное разрешение матрицы</label>
+                    <select id="resolution-matrix" name="resolution-matrix">
+                      <option value="1mp" selected>1 МП</option>
+                      <option value="3mp">3 МП</option>
+                      <option value="5mp">5 МП</option>
+                      <option value="7mp">7 МП</option>
+                      <option value="10mp">10 МП</option>
+                    </select>
+                    <svg width="14" height="8" viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L7 5.58579L12.2929 0.292893C12.6834 -0.0976311 13.3166 -0.0976311 13.7071 0.292893C14.0976 0.683417 14.0976 1.31658 13.7071 1.70711L7.70711 7.70711C7.31658 8.09763 6.68342 8.09763 6.29289 7.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z" />
+                    </svg>
+                  </div>
+                  <div class="filter__select-wrapper">
+                    <label for="resolution-video">Минимальное разрешение видео</label>
+                    <select id="resolution-video" name="resolution-video">
+                      <option value="any" selected>Любое</option>
+                      <option value="HD">HD</option>
+                      <option value="Full_HD">Full HD</option>
+                      <option value="4K">4K</option>
+                      <option value="5K">5K</option>
+                    </select>
+                    <svg width="14" height="8" viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L7 5.58579L12.2929 0.292893C12.6834 -0.0976311 13.3166 -0.0976311 13.7071 0.292893C14.0976 0.683417 14.0976 1.31658 13.7071 1.70711L7.70711 7.70711C7.31658 8.09763 6.68342 8.09763 6.29289 7.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="filter__laptop">
+                  <fieldset class="filter__type filter__type--laptop">
+                    <legend>Тип ноутбука</legend>
+                    <ul class="filter__checkboxes-list filter__checkboxes-list--laptop-ram">
+                      <li class="filter__checkboxes-item">
+                        <input class="visually-hidden" type="checkbox" name="laptop-type" value="ultra" id="ultra">
+                        <label for="ultra">Ультрабук</label>
+                      </li>
+                      <li class="filter__checkboxes-item">
+                        <input class="visually-hidden" type="checkbox" name="laptop-type" value="home" id="home">
+                        <label for="home">Домашний ноутбук</label>
+                      </li>
+                      <li class="filter__checkboxes-item">
+                        <input class="visually-hidden" type="checkbox" name="laptop-type" value="gaming" id="gaming">
+                        <label for="gaming">Игровой ноутбук</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                  <fieldset class="filter__radiobuttons filter__radiobuttons--ram">
+                    <legend>Минимальный объем оперативной памяти</legend>
+                      <ul class="filter__radiobuttons-list">
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="ram" value="any" id="any_ram">
+                          <label for="any_ram">Любой</label>
+                        </li>
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="ram" value="4gb" id="4gb">
+                          <label for="4gb">4 Гб</label>
+                        </li>
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="ram" value="8gb" id="8gb">
+                          <label for="8gb">8 Гб</label>
+                        </li>
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="ram" value="16gb" id="16gb">
+                          <label for="16gb">16 Гб</label>
+                        </li>
+                      </ul>
+                    </fieldset>
+                    <fieldset class="filter__radiobuttons filter__radiobuttons--diagonal">
+                      <legend>Минимальная диагональ экрана</legend>
+                      <ul class="filter__radiobuttons-list">
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="diagonal" value="any" id="any_diagonal" checked>
+                          <label for="any_diagonal">Любая</label>
+                        </li>
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="diagonal" value="13in" id="13in">
+                          <label for="13in">13<sup>″</sup></label>
+                        </li>
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="diagonal" value="14in" id="14in">
+                          <label for="14in">14<sup>″</sup></label>
+                        </li>
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="diagonal" value="15in" id="15in">
+                          <label for="15in">15<sup>″</sup></label>
+                        </li>
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="diagonal" value="17in" id="17in">
+                          <label for="17in">17<sup>″</sup></label>
+                        </li>
+                      </ul>
+                    </fieldset>
+                    <fieldset class="filter__type filter__type--laptop-processor">
+                      <legend>Тип процессора</legend>
+                      <ul class="filter__checkboxes-list filter__checkboxes-list--laptop-processor">
+                        <li class="filter__checkboxes-item">
+                          <input class="visually-hidden" type="checkbox" name="laptop-processor" value="i3" id="i3">
+                          <label for="i3">Intel Core i3</label>
+                        </li>
+                        <li class="filter__checkboxes-item">
+                          <input class="visually-hidden" type="checkbox" name="laptop-processor" value="i5" id="i5">
+                          <label for="i5">Intel Core i5</label>
+                        </li>
+                        <li class="filter__checkboxes-item">
+                          <input class="visually-hidden" type="checkbox" name="laptop-processor" value="i7" id="i7">
+                          <label for="i7">Intel Core i7</label>
+                        </li>
+                      </ul>
+                    </fieldset>
+                  </div>
+                  <div class="filter__car">
+                    <div class="filter__select-wrapper">
+                      <label for="resolution-video">Минимальный год выпуска</label>
+                      <select id="car_year" name="car_year">
+                        <option value="1900" selected>1900</option>
+                        <option value="1940">1940</option>
+                        <option value="1960">1960</option>
+                        <option value="1980">1980</option>
+                        <option value="2000">2000</option>
+                      </select>
+                      <svg width="14" height="8" viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L7 5.58579L12.2929 0.292893C12.6834 -0.0976311 13.3166 -0.0976311 13.7071 0.292893C14.0976 0.683417 14.0976 1.31658 13.7071 1.70711L7.70711 7.70711C7.31658 8.09763 6.68342 8.09763 6.29289 7.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z" />
+                      </svg>
+                    </div>
+                    <fieldset class="filter__radiobuttons filter__radiobuttons--transmission">
+                      <legend>Коробка передач</legend>
+                      <ul class="filter__radiobuttons-list">
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="transmission" value="any" id="any_transmission" checked>
+                          <label for="any_transmission">Любая</label>
+                        </li>
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="transmission" value="mechanic" id="mechanic_transmission">
+                          <label for="mechanic_transmission">Механика</label>
+                        </li>
+                        <li class="filter__radiobuttons-item">
+                          <input class="visually-hidden" type="radio" name="transmission" value="auto" id="auto_transmission">
+                          <label for="auto_transmission">Автомат</label>
+                        </li>
+                      </ul>
+                    </fieldset>
+                    <fieldset class="filter__type filter__type--car-body">
+                      <legend>Тип кузова</legend>
+                      <ul class="filter__checkboxes-list filter__checkboxes-list--car-body">
+                        <li class="filter__checkboxes-item">
+                          <input class="visually-hidden" type="checkbox" name="car-body" value="sedan" id="sedan">
+                          <label for="sedan">Седан</label>
+                        </li>
+                        <li class="filter__checkboxes-item">
+                          <input class="visually-hidden" type="checkbox" name="car-body" value="universal" id="universal">
+                          <label for="universal">Универсал</label>
+                        </li>
+                        <li class="filter__checkboxes-item">
+                          <input class="visually-hidden" type="checkbox" name="car-body" value="hatchback" id="hatchback">
+                          <label for="hatchback">Хэтчбэк</label>
+                        </li>
+                        <li class="filter__checkboxes-item">
+                          <input class="visually-hidden" type="checkbox" name="car-body" value="jeep" id="jeep">
+                          <label for="jeep">Внедорожник</label>
+                        </li>
+                        <li class="filter__checkboxes-item">
+                          <input class="visually-hidden" type="checkbox" name="car-body" value="cupe" id="cupe">
+                          <label for="cupe">Купэ</label>
+                        </li>
+                      </ul>
+                    </fieldset>
+                  </div>
+                  <button class="button filter__button" type="submit">Показать</button>
+                </form>
+              </section>
+              <section class="onlineshop-app__results results">
+                <div class="results__head">
+                  <h2 class="title results__title">Результаты</h2>
+                  <div class="results__sorting sorting">
+                    <form class="sorting__form">
+                      <fieldset class="sorting__order">
+                        <legend>Показать сначала:</legend>
+                        <ul class="sorting__order-list">
+                          <li class="sorting__order-tab">
+                            <input class="visually-hidden" type="radio" name="sorting-order" value="popular" id="sort-popular" checked>
+                            <label for="sort-popular">Популярные</label>
+                          </li>
+                          <li class="sorting__order-tab">
+                            <input class="visually-hidden" type="radio" name="sorting-order" value="cheap" id="sort-cheap">
+                            <label for="sort-cheap">Дешёвые</label>
+                          </li>
+                          <li class="sorting__order-tab">
+                            <input class="visually-hidden" type="radio" name="sorting-order" value="cheap" id="sort-new">
+                            <label for="sort-new">Новые</label>
+                          </li>
+                        </ul>
+                      </fieldset>
+                      <div class="sorting__favourites">
+                        <input class="visually-hidden" type="checkbox" name="favourites" id="favourites">
+                        <label for="favourites">
+                          <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5 2C3.34314 2 2 3.34314 2 5C2 7.5886 3.51088 9.71443 5.29396 11.3192C6.7106 12.5942 8.20987 13.4581 9 13.8762C9.79013 13.4581 11.2894 12.5942 12.706 11.3192C14.4891 9.71443 16 7.5886 16 5C16 3.34314 14.6569 2 13 2C11.7429 2 10.9602 2.41249 10.4997 2.78087C10.2631 2.97013 10.1016 3.15624 10.0031 3.2875C9.95407 3.35291 9.92141 3.40373 9.90362 3.43304C9.89532 3.4467 9.89034 3.45554 9.88852 3.45885C9.71707 3.79089 9.37442 4 9 4C8.62558 4 8.28293 3.79089 8.11148 3.45885C8.10949 3.45499 8.10752 3.45111 8.10557 3.44721L9 3C8.10557 3.44721 8.10583 3.44773 8.10609 3.44824L8.10658 3.44922L8.10751 3.45106L8.10912 3.45422L8.11135 3.45854C8.1124 3.46053 8.11256 3.4608 8.11182 3.45946C8.11172 3.45928 8.11161 3.45908 8.11148 3.45885C8.10966 3.45554 8.10468 3.4467 8.09638 3.43304C8.07859 3.40373 8.04593 3.35291 7.99687 3.2875C7.89843 3.15624 7.73688 2.97013 7.50031 2.78087C7.03983 2.41249 6.25708 2 5 2ZM9 1.43307C8.92235 1.36218 8.839 1.29057 8.74969 1.21913C7.96017 0.587507 6.74292 0 5 0C2.23857 0 0 2.23857 0 5C0 8.4114 1.98912 11.0356 3.95604 12.8058C5.93171 14.5839 8.02784 15.632 8.54996 15.893L8.55279 15.8944C8.83431 16.0352 9.16569 16.0352 9.44721 15.8944L9.45004 15.893C9.97216 15.632 12.0683 14.5839 14.044 12.8058C16.0109 11.0356 18 8.4114 18 5C18 2.23857 15.7614 0 13 0C11.2571 0 10.0398 0.587507 9.25031 1.21913C9.161 1.29057 9.07765 1.36218 9 1.43307ZM9.89391 3.44824C9.89408 3.4479 9.89426 3.44756 9.89443 3.44721L9 3C9.89443 3.44721 9.89417 3.44773 9.89391 3.44824Z"/>
+                          </svg>
+                          Показать избранные
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="results__info favourites hidden">
+                  <p class="favourites__empty-message">У вас пока нет избранных товаров. Чтобы отметить товар, кликните на сердечко в карточке объявления.</p>
+                  <p class="favourites__notion">Вы можете вернуться к списку всех товаров, кликнув ещё раз на&nbsp;«Показать избранные»</p>
+                </div>
+                <ul class="results__list">
+                  <li class="results__item product">
+                    <button class="product__favourite fav-add" type="button" aria-label="Добавить в избранное">
+                      <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7C3 13 10 16.5 11 17C12 16.5 19 13 19 7C19 4.79086 17.2091 3 15 3C12 3 11 5 11 5C11 5 10 3 7 3C4.79086 3 3 4.79086 3 7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <div class="product__image">
+                      <div class="product__image-more-photo hidden">+2 фото</div>
+                      <img src="img/item1.jpg" srcset="img/item1-2x.jpg 2x" width="318" height="220" alt="Загородный дом с видом на озеро">
+                      <div class="product__image-navigation">
+                        <span class="product__navigation-item product__navigation-item--active"></span>
+                        <span class="product__navigation-item"></span>
+                        <span class="product__navigation-item"></span>
+                        <span class="product__navigation-item"></span>
+                        <span class="product__navigation-item"></span>
+                      </div>
+                    </div>
+                    <div class="product__content">
+                      <h3 class="product__title">
+                        <a href="#">Загородный дом с видом на озеро</a>
+                      </h3>
+                      <div class="product__price">3 000 000 ₽</div>
+                      <div class="product__address">Приозёрск, улица Прибрежная</div>
+                      <div class="product__date">2 часа назад</div>
+                    </div>
+                  </li>
+                  <li class="results__item product">
+                    <button class="product__favourite fav-add" type="button" aria-label="Добавить в избранное">
+                      <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7C3 13 10 16.5 11 17C12 16.5 19 13 19 7C19 4.79086 17.2091 3 15 3C12 3 11 5 11 5C11 5 10 3 7 3C4.79086 3 3 4.79086 3 7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <div class="product__image">
+                      <div class="product__image-more-photo hidden">+2 фото</div>
+                      <img src="img/item2.jpg" srcset="img/item2-2x.jpg 2x" width="318" height="220" alt="Ford Mustang 2020">
+                      <div class="product__image-navigation hidden">
+                        <span class="product__navigation-item product__navigation-item--active"></span>
+                        <span class="product__navigation-item"></span>
+                        <span class="product__navigation-item"></span>
+                        <span class="product__navigation-item"></span>
+                        <span class="product__navigation-item"></span>
+                      </div>
+                    </div>
+                    <div class="product__content">
+                      <h3 class="product__title">
+                        <a href="#">Ford Mustang 2020</a>
+                      </h3>
+                      <div class="product__price">2 950 000 ₽</div>
+                      <div class="product__address">Москва, Нахимовский проспект</div>
+                      <div class="product__date">3 дня назад</div>
+                    </div>
+                  </li>
+                  <li class="results__item product">
+                    <button class="product__favourite fav-add" type="button" aria-label="Добавить в избранное">
+                      <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7C3 13 10 16.5 11 17C12 16.5 19 13 19 7C19 4.79086 17.2091 3 15 3C12 3 11 5 11 5C11 5 10 3 7 3C4.79086 3 3 4.79086 3 7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <div class="product__image">
+                      <div class="product__image-more-photo hidden">+2 фото</div>
+                      <img src="img/item3.jpg" srcset="img/item3-2x.jpg 2x" width="318" height="220" alt="Фотокамера Canon EOS 5D + объектив">
+                      <div class="product__image-navigation hidden">
+                        <span class="product__navigation-item product__navigation-item--active"></span>
+                        <span class="product__navigation-item"></span>
+                        <span class="product__navigation-item"></span>
+                        <span class="product__navigation-item"></span>
+                        <span class="product__navigation-item"></span>
+                      </div>
+                    </div>
+                    <div class="product__content">
+                      <h3 class="product__title">
+                        <a href="#">Фотокамера Canon EOS 5D + объектив</a>
+                      </h3>
+                    <div class="product__price">19 000 ₽</div>
+                    <div class="product__address">Киров, улица Ленина</div>
+                    <div class="product__date">1 день назад</div>
+                  </div>
+                </li>
+                <li class="results__item product">
+                  <button class="product__favourite fav-add" type="button" aria-label="Добавить в избранное">
+                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7C3 13 10 16.5 11 17C12 16.5 19 13 19 7C19 4.79086 17.2091 3 15 3C12 3 11 5 11 5C11 5 10 3 7 3C4.79086 3 3 4.79086 3 7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="product__image">
+                    <div class="product__image-more-photo hidden">+2 фото</div>
+                    <img src="img/item4.jpg" srcset="img/item4-2x.jpg 2x" width="318" height="220" alt="1-комнатная квартира в центре Питера">
+                    <div class="product__image-navigation hidden">
+                      <span class="product__navigation-item product__navigation-item--active"></span>
+                      <span class="product__navigation-item"></span>
+                      <span class="product__navigation-item"></span>
+                      <span class="product__navigation-item"></span>
+                      <span class="product__navigation-item"></span>
+                    </div>
+                  </div>
+                  <div class="product__content">
+                    <h3 class="product__title">
+                      <a href="#">1-комнатная квартира в центре Питера</a>
+                    </h3>
+                    <div class="product__price">5 750 000 ₽</div>
+                    <div class="product__address">Санкт-Петербург, Невский проспект</div>
+                    <div class="product__date">5 часов назад</div>
+                  </div>
+                </li>
+                <li class="results__item product">
+                  <button class="product__favourite fav-add fav-add--checked" type="button" aria-label="Добавить в избранное">
+                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7C3 13 10 16.5 11 17C12 16.5 19 13 19 7C19 4.79086 17.2091 3 15 3C12 3 11 5 11 5C11 5 10 3 7 3C4.79086 3 3 4.79086 3 7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="product__image">
+                    <div class="product__image-more-photo hidden">+2 фото</div>
+                    <img src="img/item5.jpg" srcset="img/item5-2x.jpg 2x" width="318" height="220" alt="Ультрабук HP Spectre X360 2019">
+                    <div class="product__image-navigation hidden">
+                      <span class="product__navigation-item product__navigation-item--active"></span>
+                      <span class="product__navigation-item"></span>
+                      <span class="product__navigation-item"></span>
+                      <span class="product__navigation-item"></span>
+                      <span class="product__navigation-item"></span>
+                    </div>
+                  </div>
+                  <div class="product__content">
+                    <h3 class="product__title">
+                      <a href="#">Ультрабук HP Spectre X360 2019</a>
+                    </h3>
+                    <div class="product__price">41 000 ₽</div>
+                    <div class="product__address">Пермь, проспект Просвещения</div>
+                    <div class="product__date">7 января</div>
+                  </div>
+                </li>
+                <li class="results__item product">
+                  <button class="product__favourite fav-add" type="button" aria-label="Добавить в избранное">
+                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7C3 13 10 16.5 11 17C12 16.5 19 13 19 7C19 4.79086 17.2091 3 15 3C12 3 11 5 11 5C11 5 10 3 7 3C4.79086 3 3 4.79086 3 7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <div class="product__image">
+                    <div class="product__image-more-photo">+2 фото</div>
+                    <img src="img/item6.jpg" srcset="img/item6-2x.jpg 2x" width="318" height="220" alt="ВАЗ 2101 на ходу, без документов">
+                    <div class="product__image-navigation hidden">
+                      <span class="product__navigation-item product__navigation-item--active"></span>
+                      <span class="product__navigation-item"></span>
+                      <span class="product__navigation-item"></span>
+                      <span class="product__navigation-item"></span>
+                      <span class="product__navigation-item"></span>
+                    </div>
+                  </div>
+                  <div class="product__content">
+                    <h3 class="product__title">
+                      <a href="#">ВАЗ 2101 на ходу, без документов</a>
+                    </h3>
+                    <div class="product__price">5 000 ₽</div>
+                    <div class="product__address">Омск, улица Уездная</div>
+                    <div class="product__date">30 декабря 2019 года</div>
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </section>
+      </main>
+      <section class="popup">
+        <div class="popup__inner">
+          <button class="popup__close" type="button" aria-label="Закрыть">
+            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683418 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L8 6.58579L14.2929 0.292893C14.6834 -0.0976311 15.3166 -0.0976311 15.7071 0.292893C16.0976 0.683418 16.0976 1.31658 15.7071 1.70711L9.41421 8L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L8 9.41421L1.70711 15.7071C1.31658 16.0976 0.683418 16.0976 0.292893 15.7071C-0.0976311 15.3166 -0.0976311 14.6834 0.292893 14.2929L6.58579 8L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292893Z"/>
+            </svg>
+          </button>
+          <div class="popup__date">3 дня назад</div>
+          <h3 class="popup__title">Ford Mustang 2020</h3>
+          <div class="popup__price">2 950 000 ₽</div>
+          <div class="popup__columns">
+            <div class="popup__left">
+              <div class="popup__gallery gallery">
+                <button class="gallery__favourite fav-add">
+                  <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7C3 13 10 16.5 11 17C12 16.5 19 13 19 7C19 4.79086 17.2091 3 15 3C12 3 11 5 11 5C11 5 10 3 7 3C4.79086 3 3 4.79086 3 7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <div class="gallery__main-pic">
+                  <img src="img/car-big.jpg" srcset="img/car-big-2x.jpg 2x" width="520" height="340" alt="Ford Mustang 2020">
+                </div>
+                <ul class="gallery__list">
+                  <li class="gallery__item gallery__item--active">
+                    <img src="img/car1.jpg" srcset="img/car1-2x.jpg 2x" alt="Ford Mustang 2020" width="124" height="80">
+                  </li>
+                  <li class="gallery__item">
+                    <img src="img/car2.jpg" srcset="img/car2-2x.jpg 2x" alt="Ford Mustang 2020" width="124" height="80">
+                  </li>
+                  <li class="gallery__item">
+                    <img src="img/car3.jpg" srcset="img/car3-2x.jpg 2x" alt="Ford Mustang 2020" width="124" height="80">
+                  </li>
+                  <li class="gallery__item">
+                    <img src="img/car4.jpg" srcset="img/car4-2x.jpg 2x" alt="Ford Mustang 2020" width="124" height="80">
+                  </li>
+                  <li class="gallery__item">
+                    <img src="img/car5.jpg" srcset="img/car5-2x.jpg 2x" alt="Ford Mustang 2020" width="124" height="80">
+                  </li>
+                </ul>
+              </div>
+              <ul class="popup__chars chars">
+                <li class="chars__item">
+                  <div class="chars__name">Год выпуска</div>
+                  <div class="chars__value">1999</div>
+                </li>
+                <li class="chars__item">
+                  <div class="chars__name">Коробка передач</div>
+                  <div class="chars__value">механическая</div>
+                </li>
+                <li class="chars__item">
+                  <div class="chars__name">Тип кузова</div>
+                  <div class="chars__value">внедорожник</div>
+                </li>
+              </ul>
+              <div class="popup__seller seller seller--good">
+                <h3>Продавец</h3>
+                <div class="seller__inner">
+                  <a class="seller__name" href="#">Автосалон Pony Car</a>
+                  <div class="seller__rating"><span>4.9</span></div>
+                </div>
+              </div>
+              <div class="popup__description">
+                <h3>Описание товара</h3>
+                <p>Форд Мустанг 2020 года выпуска, один владелец, пробег 1 км, объём двигателя 5,8 литра, 662 л.с., максимальная скорость — 320 км/ч. Причина продажи — страшно ездить.</p>
+              </div>
+            </div>
+            <div class="popup__right">
+              <div class="popup__map">
+                <img src="img/map.jpg" width="268" height="180" alt="Москва, Нахимовский проспект, дом 5">
+              </div>
+              <div class="popup__address">Москва, Нахимовский проспект, дом 5</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script src="./js/rSlider.js"></script>
+      <script src="./js/script.js"></script>
+    </body>
+</html>
